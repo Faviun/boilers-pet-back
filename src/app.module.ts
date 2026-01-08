@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot({
       load: [databaseConfig],
     }),
-    // UsersModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

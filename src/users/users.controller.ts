@@ -26,11 +26,19 @@ import {
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @ApiOkResponse({ type: SignupResponse })
+  // @ApiOkResponse({ type: SignupResponse })
+  // @Post('/signup')
+  // @HttpCode(HttpStatus.CREATED)
+  // @Header('Content-type', 'application/json')
+  // createUser(@Body() createUserDto: CreateUserDto) {
+  //   return this.usersService.create(createUserDto);
+  // }
+
   @Post('/signup')
   @HttpCode(HttpStatus.CREATED)
   @Header('Content-type', 'application/json')
   createUser(@Body() createUserDto: CreateUserDto) {
+    console.log('DTO:', createUserDto);
     return this.usersService.create(createUserDto);
   }
 
