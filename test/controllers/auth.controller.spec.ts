@@ -1,15 +1,14 @@
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import * as bcrypt from 'bcrypt';
-import * as request from 'supertest';
-import * as session from 'express-session';
-import * as passport from 'passport';
+import bcrypt from 'bcrypt';
+import request from 'supertest';
+import session from 'express-session';
+import passport from 'passport';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Test, TestingModule } from '@nestjs/testing';
 import { databaseConfig } from 'src/config/configuration';
 import { SequelizeConfigService } from 'src/config/sequelizeConfig.service';
 import { User } from 'src/users/users.model';
-import { UsersModule } from 'src/users/users.module';
 import { AuthModule } from 'src/auth/auth.module';
 
 const mockedUser = {

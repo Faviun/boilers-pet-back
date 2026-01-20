@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
 import { BoilerParts } from './boiler-parts.model';
@@ -64,6 +68,8 @@ export class BoilerPartsService {
   }
 
   async findOneByName(name: string): Promise<BoilerParts> {
+    if (!name) throw new BadRequestException('Name is required');
+
     const boilerPart = await this.boilerPartsModel.findOne({
       where: { name },
     });
