@@ -60,7 +60,6 @@ describe('Shopping Cart Controller', () => {
   });
 
   beforeEach(async () => {
-    // --- создаём пользователя ---
     const hashedPassword = await bcrypt.hash(mockedUser.password, 10);
     const user = await User.create({
       username: mockedUser.username,
@@ -68,7 +67,6 @@ describe('Shopping Cart Controller', () => {
       password: hashedPassword,
     });
 
-    // --- создаём тестовую часть ---
     testPart1 = await BoilerParts.create({
       boiler_manufacturer: 'Test Boiler 1',
       parts_manufacturer: 'Test Parts 1',
@@ -86,7 +84,6 @@ describe('Shopping Cart Controller', () => {
 
     testPart1 = testPart1.toJSON ? testPart1.toJSON() : testPart1;
 
-    // --- создаём корзину ---
     testCart = await ShoppingCart.create({
       userId: user.id,
       partId: testPart1.id,
